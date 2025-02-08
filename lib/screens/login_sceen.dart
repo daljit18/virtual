@@ -14,6 +14,7 @@
 import 'package:flutter/material.dart';
 
 import 'signup_screen.dart';
+import 'chat_screen.dart';
 import 'forgot_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -76,6 +77,12 @@ class _LoginScreenState extends State<LoginScreen> {
             ElevatedButton(
               onPressed: () {
                 // Handle login logic here
+                Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ChatScreen()),
+                      (route) => false,
+                    );
               },
               child: const Text('Login'),
             ),
