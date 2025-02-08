@@ -1,22 +1,17 @@
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:4040148025.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2586569490.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:651112600.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3392762605.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2933639300.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1165473347.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1857699594.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:815447094.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3607586578.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3757414512.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1423718584.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:280150839.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3647114042.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:65240468.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3709684751.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2246383185.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3900520633.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1008272035.
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
+
+  static const String routeName = '/chat';
+  static Route route(){
+    return MaterialPageRoute(
+      builder: (_) => ChatScreen()
+    );
+  }
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -70,6 +65,28 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Chat"),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: const [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Navigation Options',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('Diet Plan'),
+            ),
+            ListTile(title: Text('Workout Plan')),
+          ],
+        ),
       ),
       body: Column(
         children: [
